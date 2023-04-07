@@ -1,11 +1,33 @@
-<%@ page trimDirectiveWhitespaces="true" %>
+
+
+
+
+
+<%@ page trimDirectiveWhitespaces="true"%>
+
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template"%>
-<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
+
+ 
+
+<template:page pageTitle="${pageTitle}">
+
+        <cms:pageSlot position="teslaParagraph" var="feature"
+		class="teslaBannerParagraph">
+		
+		<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model S</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <style>
       .desc-tbl {
         color: black;
         /* text-align: center; */
@@ -26,22 +48,14 @@
         width: 150px;
       }
     </style>
- 
-
-<template:page pageTitle="${pageTitle}">
-		<cms:pageSlot position="teslaParagraph" var="feature" class="teslaBannerParagraph">
-			<cms:component component="${feature}" />
-		</cms:pageSlot>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    
-    
-    
+  </head>
+  <body>
     <div class="row models">
       <div class="col-md-12 col-lg-8" style="margin-top: 7rem;">
         <div id="myCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://tesla-cdn.thron.com/delivery/public/image/tesla/9ed31f26-4d49-4701-bc5b-2121ff85e5b3/bvlatuR/std/2880x1800/Model-S-Main-Hero-Desktop-LHD?quality=auto-medium&amp;format=auto" class="d-block w-100" alt="Your Image 1" height="1000px" width="1000px" />
+              <img src="https://tesla-cdn.thron.com/delivery/public/image/tesla/9ed31f26-4d49-4701-bc5b-2121ff85e5b3/bvlatuR/std/2880x1800/Model-S-Main-Hero-Desktop-LHD?quality=auto-medium&amp;format=auto" class="d-block w-100" alt="Your Image 1" />
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -107,10 +121,22 @@
 <h6>Battery and Drive Unit Limited Warranty</h6>
 <p>December 2027 / unlimited mileage</p>
 <br />
-
+<a href="https://apparel-uk.local:9002/poct6storefront/en/login/checkout"><button className="btn btn-secondary btn-lg" onclick="openPage('checkoutGuestLogin.jsp.jsp')">Book a test drive</button></a>
 </div>
 </div>
     </div>
+           
+		
 
-</template:page>	
-  
+            <cms:component component="${feature}" />
+
+        </cms:pageSlot>
+
+        
+
+ 
+
+</template:page>
+       
+
+
