@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  labels:
+    app: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app-container
+        image: hypertesla.azurecr.io/react-frontend:#{Build.BuildId}#
+        ports:
+        - containerPort: 7080
+        env:
+        - name: MY_VAR
+          value: "my-value"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+spec:
+  selector:
+    app: my-app
+  ports:
+  - name: http
+    port: 7080
+    targetPort: 7080
+  type: LoadBalancer
