@@ -23,11 +23,11 @@ public class ModelXController extends AbstractPageController
 	private static final String MODELX_CMS_PAGE = "modelXCMSPage";
 
 	@RequestMapping(method = RequestMethod.GET)
-	private String getTesla(final Model model) throws CMSItemNotFoundException
+	private String getModelX(final Model model) throws CMSItemNotFoundException
 	{
-		final ContentPageModel teslaCMSPage = getContentPageForLabelOrId(MODELX_CMS_PAGE);
-		storeCmsPageInModel(model, teslaCMSPage);
-		setUpMetaDataForContentPage(model, teslaCMSPage);
+		final ContentPageModel modelXCMSPage = getContentPageForLabelOrId(MODELX_CMS_PAGE);
+		storeCmsPageInModel(model, modelXCMSPage);
+		setUpMetaDataForContentPage(model, modelXCMSPage);
 		return getViewForPage(model);
 	 }
 
