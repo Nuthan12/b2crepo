@@ -1,0 +1,28 @@
+pool:
+  name: Azure Pipelines
+steps:
+- task: Docker@0
+  displayName: 'Build an image'
+  inputs:
+    azureSubscription: 'Azure Pass - Sponsorship (cbdeaee3-372d-4773-b1b1-9806183b8557)'
+    azureContainerRegistry: '{"loginServer":"hypertesla.azurecr.io", "id" : "/subscriptions/cbdeaee3-372d-4773-b1b1-9806183b8557/resourceGroups/react-dhanush-deployment/providers/Microsoft.ContainerRegistry/registries/hypertesla"}'
+    dockerFile: Dockerfile
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: 'Push an image'
+  inputs:
+    azureSubscription: 'Azure Pass - Sponsorship (cbdeaee3-372d-4773-b1b1-9806183b8557)'
+    azureContainerRegistry: '{"loginServer":"hypertesla.azurecr.io", "id" : "/subscriptions/cbdeaee3-372d-4773-b1b1-9806183b8557/resourceGroups/react-dhanush-deployment/providers/Microsoft.ContainerRegistry/registries/hypertesla"}'
+    action: 'Push an image'
+    includeLatestTag: true
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    Contents: deployment.yaml
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+
