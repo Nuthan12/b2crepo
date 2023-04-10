@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 05-Apr-2023, 11:21:08 am                    ---
+ * --- Generated at 07-Apr-2023, 6:34:16 pm                     ---
  * ----------------------------------------------------------------
  */
 package org.poct6backoffice.constants;

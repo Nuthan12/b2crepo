@@ -1,4 +1,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template"%>
 
@@ -10,140 +13,109 @@
 
  <cms:pageSlot position="teslaParagraph" var="feature" class="teslaBannerParagraph">
 
-<cms:component component="${feature}" />
+
 
  </cms:pageSlot>
 
-
 <head>
-    <title>Example Form</title><script>var stateObject = {
-      "Karnataka": {
-        "Bengaluru": ["Vasanthanagar", "J.P. Nagar", "B.T.M Layout", "Shantinagar","Malleshwaram"],
-        "Mysuru": ["MysA", "MysB", "MysC", "MysB"],
-           
-      },
-      "Tamilnadu": {
-        "Chennai": ["T Nagar", "Egmore", "Annangar"],
-        
-      },
-      "Maharashtra": {
-        "Mumbai": ["a1", "a2", "a3"],
-        
-      },
-      "Westbengal": {
-        "Kolkata": ["k1", "k2", "k3"],
-       
-      }
-    }
-    window.onload = function() {
-      var stateSel = document.getElementById("state");
-      var citySel = document.getElementById("city");
-      var dealerSel = document.getElementById("dealer");
-      for (var x in stateObject) {
-        stateSel.options[stateSel.options.length] = new Option(x, x);
-      }
-      stateSel.onchange = function() {
-     //empty dealers- and citys- dropdowns
-    dealerSel.length = 1;
-    citySel.length = 1;
-        //display correct values
-        for (var y in stateObject[this.value]) {
-          citySel.options[citySel.options.length] = new Option(y, y);
-        }
-      }
-      citySel.onchange = function() {
-     //empty dealers dropdown
-     dealerSel.length = 1;
-        //display correct values
-        var z = stateObject[stateSel.value][this.value];
-        for (var i = 0; i < z.length; i++) {
-          dealerSel.options[dealerSel.options.length] = new Option(z[i], z[i]);
-        }
-      }
-    }
+   
+    <script type="text/javascript">
+        window.onload = function() {
+            var currentDate = new Date().toISOString().split('T')[0];
+            document.getElementById('dateField').min = currentDate;
+        };
     </script>
     <style>
-      /* Internal CSS */
-      form {
-        margin: 20px;
-        padding: 20px;
-        border: 1px solid black;
-      }
-      label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      input[type="text"], textarea {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="date"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="date"] {
+            background-color: #fff;
+            color: #333;
+        }
+        select {
+            height: 36px;
+        }
     </style>
-  </head>
-  <body>
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required>
-      
-      <label for="phno">Phone Number:</label>
-      <input type="tel" id="phno" name="phno" required>
+</head>
 
-      <label for="cars">Choose a car:</label>
+    <h1>Test Drive Registration</h1>
+    <form action="/tesla/teslaRegistrationSuccessPage" method="post">
+        <label>Email:</label>
+        <input type="email" name="email" /><br>
+        <label>First Name:</label>
+        <input type="text" name="firstName" /><br>
+        <label>Last Name:</label>
+        <input type="text" name="lastName" /><br>
+        <label>Mobile No:</label>
+        <input type="text" name="mobileNo" /><br>
+        <label>Model Type:</label>
+        <select id="modelType" name="modelType" required>
+            <option value="Model S">Model S</option>
+            <option value="Model 3">Model 3</option>
+            <option value="Model X">Model X</option>
+            <option value="Model Y">Model Y</option>
+        </select><br>
+        <label>Date:</label>
+        <input type="date" name="date" /><br>
+        
+        <label for="timeSlot">Time Slot:</label>
+        <select id="timeSlot" name="timeSlot" required>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+        </select><br>
+        <label for="metroCity">Metro City:</label>
+        <select id="metroCity" name="metroCity" required>
+            <option value="BENGALURU">BENGALURU</option>
+            <option value="CHENNAI">CHENNAI</option>
+            <option value="MUMBAI">MUMBAI</option>
+            <option value="DELHI">DELHI</option>
+        </select><br>
 
-<select name="model" id="model">
-  <option value="s">MODEL S</option>
-  <option value="3">MODEL 3</option>
-  <option value="x">MODEL X</option>
-  <option value="7">MODEL Y</option>
-</select>
-<br><br>
-
-<select name="timeslot" id="ts">
-  <option value="ts1">10:00 am</option>
-  <option value="ts2">12:00 pm</option>
-  <option value="ts3">2:00 pm</option>
-  <option value="ts4">4:00 pm</option>
-</select>
-<br><br>
-
-<form name="form1" id="form1" action="/action_page.php">
- State <select name="state" id="state">
-      <option value="" selected="selected">Select state</option>
-    </select>
-    <br><br>
-  Cities <select name="city" id="city">
-      <option value="" selected="selected">Select the nearest dealer</option>
-    </select>
-    <br><br>
-    Dealers associated with tesla: <select name="dealer" id="dealer">
-      <option value="" selected="selected">Please select topic first</option>
-    </select>
-    <br><br>
-   
-
-      
-      <input type="submit" value="Submit">
+        <label for="teslaDealer">Tesla Dealer:</label>
+        <select id="teslaDealer" name="teslaDealer" required>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select><br>
+        <input type="submit" value="Submit" />
     </form>
-  </body>
+
+
 
 
 </template:page>
