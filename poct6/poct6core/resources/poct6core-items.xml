@@ -25,6 +25,54 @@
             <value code="WHITE"/>
             <value code="YELLOW"/>
         </enumtype>
+        
+        <enumtype code="modelType" autocreate="true" generate="true">
+        <value code="Model_S"></value>
+        <value code="Model_3"></value>
+        <value code="Model_X"></value>  
+        <value code="Model_Y"></value>   
+        </enumtype>
+        
+        <enumtype code="Month" generate="true" autocreate="true">
+        <value code="JAN" />
+        <value code="FEB" />
+        <value code="MAR" />
+        <value code="APR" />
+        <value code="MAY" />
+        <value code="JUN" />
+        <value code="JUL" />
+        <value code="AUG" />
+        <value code="SEP" />
+        <value code="OCT" />
+        <value code="NOV" />
+        <value code="DEC" />
+    </enumtype>
+    
+    <enumtype code="timeSlot" generate="true" autocreate="true">
+        <value code="MORNING" />
+        <value code="AFTERNOON" />
+        <value code="EVENING" />
+        
+    </enumtype>
+    
+    <enumtype code="metroCity" generate="true" autocreate="true">
+        <value code="BENGALURU" />
+        <value code="CHENNAI" />
+        <value code="MUMBAI" />
+        <value code="DELHI" />
+        
+    </enumtype>
+    
+    <enumtype code="teslaDealer" generate="true" autocreate="true">
+        <value code="A" />
+        <value code="B" />
+        <value code="C" />
+        <value code="D" />
+        
+    </enumtype>
+    
+    
+    
     </enumtypes>
 
     <itemtypes>
@@ -103,6 +151,73 @@
                 </attributes>
             </itemtype>
         </typegroup>
+        
+        <typegroup name="TestDrive">
+    <itemtype code="testDriveCustomer" autocreate="true" generate="true" jaloclass="de.hybris.poct6.core.jalo.TestDrive">
+	<description>This contains list of Customers Registered for the Test Drive</description>
+        	<deployment table="Test_Drive" typecode="11006"/>
+        <attributes>
+		  <attribute qualifier="email" type="java.lang.String">
+                <persistence type="property" />
+                <description>Email Address</description>
+                <modifiers optional="false" unique="true" />
+                
+            </attribute>
+
+            <attribute qualifier="firstName" type="java.lang.String">
+                <persistence type="property" />
+                <description>First Name</description>
+                <modifiers optional="false" />
+                
+            </attribute>
+            <attribute qualifier="lastName" type="java.lang.String">
+                <persistence type="property" />
+                <description>Last Name</description>
+                <modifiers optional="false" />
+                
+            </attribute>
+           
+           
+ 
+            <attribute qualifier="mobileNo" type="java.lang.String">
+                <persistence type="property" />
+                <description>Mobile Number</description>
+                <modifiers optional="false" />
+                
+            </attribute>
+            <attribute qualifier="modelType" type="java.lang.String">
+                <persistence type="property" />
+                <description>Model Type</description>
+				<modifiers optional="false" />
+				
+			</attribute>
+			<attribute qualifier="date" type="java.util.Date">
+				<persistence type="property" />
+				<description>Date</description>
+				<modifiers optional="false" />
+			</attribute>
+			<attribute qualifier="timeSlot" type="java.lang.String">
+				<persistence type="property" />
+				<description>Time Slot</description>
+				<modifiers optional="false" />
+				
+			</attribute>
+			
+			<attribute qualifier="metroCity" type="java.lang.String">
+				<persistence type="property" />
+				<description>City</description>
+				<modifiers optional="false" />
+				
+			</attribute>
+			<attribute qualifier="teslaDealer" type="java.lang.String">
+				<persistence type="property" />
+				<description>Dealer</description>
+				<modifiers optional="false" />
+			    
+			</attribute>
+		</attributes>
+	</itemtype>
+	</typegroup>
 
     </itemtypes>
 </items>

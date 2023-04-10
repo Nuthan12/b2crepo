@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 05-Apr-2023, 11:21:08 am                    ---
+ * --- Generated at 07-Apr-2023, 6:34:16 pm                     ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
@@ -21,6 +21,7 @@ import de.hybris.poct6.core.jalo.ApparelProduct;
 import de.hybris.poct6.core.jalo.ApparelSizeVariantProduct;
 import de.hybris.poct6.core.jalo.ApparelStyleVariantProduct;
 import de.hybris.poct6.core.jalo.ElectronicsColorVariantProduct;
+import de.hybris.poct6.core.jalo.TestDrive;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -150,6 +151,32 @@ public abstract class GeneratedPoct6CoreManager extends Extension
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final Map attributeValues)
 	{
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public TestDrive createTestDriveCustomer(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( Poct6CoreConstants.TC.TESTDRIVECUSTOMER );
+			return (TestDrive)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating testDriveCustomer : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public TestDrive createTestDriveCustomer(final Map attributeValues)
+	{
+		return createTestDriveCustomer( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override
